@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-
+<html>
   <body>
     <script
       type="text/javascript"
       src="https://www.gstatic.com/charts/loader.js"
     ></script>
-    <script>
+
+    <div id="sankey_multiple" style="width: 900px; height: 300px;"></div>
+
+    <script type="text/javascript">
       google.charts.load("current", {
         packages: ["sankey"],
       });
@@ -256,53 +252,101 @@
           ["Instance based classification", "Sizing issue", 0],
         ]);
 
-        // Sets chart options.
+        // Set chart options
         var colors = [
-          "#a6cee3",
-          "#b2df8a",
-          "#fb9a99",
-          "#fdbf6f",
-          "#cab2d6",
-          "#ffff99",
-          "#1f78b4",
-          "#33a02c",
+          "#8a3ab9",
+          "#e95950",
+          "#bc2a8d",
+          "#fccc63",
+          "#fbad50",
+          "#cd486b",
+          "#4c68d7",
+          "#00acee",
+          "#69C9D0",
+          "#EE1D52",
+          "#5DCD11",
         ];
 
-        //var options = {
-        //width: 900,
-        //sankey: { node: { nodePadding: 80 } },
-        //};
+        var options = {
+          width: 600,
+          sankey: {
+            link: { color: { fill: "#d799ae" } },
+            node: { colors: ["#a61d4c"], label: { color: "#871b47" } },
+          },
+        };
 
         var options = {
-          height: 600,
-          width: 1500,
+          width: 600,
+          sankey: {
+            link: { color: { fill: "#d799ae", fillOpacity: 0.8 } },
+            node: { colors: ["#a61d4c"], label: { color: "#871b47" } },
+          },
+        };
+
+        var options = {
+          width: 750,
+          height: 400,
+          sankey: {
+            node: { colors: ["#a61d4c"] },
+            link: { color: { stroke: "black", strokeWidth: 1 } },
+          },
+        };
+
+        var options = {
+          width: 600,
           sankey: {
             node: {
               label: {
                 fontName: "Times-Roman",
                 fontSize: 14,
-                color: "#871b47",
+                colors: colors,
+                bold: true,
+                italic: true,
+              },
+            },
+          },
+        };
+
+        var options = {
+          width: 600,
+          sankey: { node: { width: 2 } },
+        };
+
+        var options = {
+          width: 600,
+          sankey: { node: { width: 10 } },
+        };
+
+        var options = {
+          width: 900,
+          sankey: { node: { nodePadding: 80 } },
+        };
+
+        var options = {
+          height: 600,
+          sankey: {
+            node: {
+              nodePadding: 12,
+              width: 50,
+              label: {
+                fontName: "Calibri",
+                fontSize: 14,
+                color: "#000000",
                 bold: true,
                 italic: true,
               },
             },
             link: {
-              colorMode: "gradient",
-              colors: colors,
+              color: { stroke: "black", strokeWidth: 0.15 },
             },
           },
         };
-
-        // Instantiates and draws our chart, passing in some options.
+        // Instantiate and draw our chart, passing in some options.
         var chart = new google.visualization.Sankey(
-          document.getElementById("sankey_basic")
+          document.getElementById("sankey_multiple")
         );
         chart.draw(data, options);
-        var cli = chart.getChartLayoutInterface(
-          cli.getBoundingBox("bar#0#2").width
-        );
       }
     </script>
-    <div id="sankey_basic" style="width: 900px; height: 300px;"></div>
   </body>
 </html>

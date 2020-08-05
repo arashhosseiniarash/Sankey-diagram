@@ -1,21 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-
-  <body>
     <script
       type="text/javascript"
       src="https://www.gstatic.com/charts/loader.js"
     ></script>
-    <script>
-      google.charts.load("current", {
-        packages: ["sankey"],
-      });
+    <script type="text/javascript">
+      google.charts.load("current", { packages: ["sankey"] });
       google.charts.setOnLoadCallback(drawChart);
+      forceIFrame;
 
       function drawChart() {
         var data = new google.visualization.DataTable();
@@ -257,40 +249,9 @@
         ]);
 
         // Sets chart options.
-        var colors = [
-          "#a6cee3",
-          "#b2df8a",
-          "#fb9a99",
-          "#fdbf6f",
-          "#cab2d6",
-          "#ffff99",
-          "#1f78b4",
-          "#33a02c",
-        ];
-
-        //var options = {
-        //width: 900,
-        //sankey: { node: { nodePadding: 80 } },
-        //};
-
         var options = {
-          height: 600,
-          width: 1500,
-          sankey: {
-            node: {
-              label: {
-                fontName: "Times-Roman",
-                fontSize: 14,
-                color: "#871b47",
-                bold: true,
-                italic: true,
-              },
-            },
-            link: {
-              colorMode: "gradient",
-              colors: colors,
-            },
-          },
+          width: 600,
+          sankey: { node: { width: 2 } },
         };
 
         // Instantiates and draws our chart, passing in some options.
@@ -298,11 +259,10 @@
           document.getElementById("sankey_basic")
         );
         chart.draw(data, options);
-        var cli = chart.getChartLayoutInterface(
-          cli.getBoundingBox("bar#0#2").width
-        );
       }
     </script>
+  </head>
+  <body>
     <div id="sankey_basic" style="width: 900px; height: 300px;"></div>
   </body>
 </html>
