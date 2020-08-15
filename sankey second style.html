@@ -268,62 +268,11 @@
         ];
 
         var options = {
-          width: 600,
-          sankey: {
-            link: { color: { fill: "#d799ae" } },
-            node: { colors: ["#a61d4c"], label: { color: "#871b47" } },
-          },
-        };
-
-        var options = {
-          width: 600,
-          sankey: {
-            link: { color: { fill: "#d799ae", fillOpacity: 0.8 } },
-            node: { colors: ["#a61d4c"], label: { color: "#871b47" } },
-          },
-        };
-
-        var options = {
-          width: 750,
-          height: 400,
-          sankey: {
-            node: { colors: ["#a61d4c"] },
-            link: { color: { stroke: "black", strokeWidth: 1 } },
-          },
-        };
-
-        var options = {
-          width: 600,
-          sankey: {
-            node: {
-              label: {
-                fontName: "Times-Roman",
-                fontSize: 14,
-                colors: colors,
-                bold: true,
-                italic: true,
-              },
-            },
-          },
-        };
-
-        var options = {
-          width: 600,
-          sankey: { node: { width: 2 } },
-        };
-
-        var options = {
-          width: 600,
-          sankey: { node: { width: 10 } },
-        };
-
-        var options = {
-          width: 900,
-          sankey: { node: { nodePadding: 80 } },
-        };
-
-        var options = {
           height: 600,
+          tooltip: {
+            isHtml: true,
+            textStyle: { color: "#FF0000" },
+          },
           sankey: {
             node: {
               nodePadding: 12,
@@ -341,6 +290,7 @@
             },
           },
         };
+        console.log(options.sankey);
         // Instantiate and draw our chart, passing in some options.
         var chart = new google.visualization.Sankey(
           document.getElementById("sankey_multiple")
